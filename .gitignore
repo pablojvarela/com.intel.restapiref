@@ -161,3 +161,13 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+###########
+# DITA-OT 
+###########
+
+# Build temp folder
+temp/
+
+# Build out folder
+out/
