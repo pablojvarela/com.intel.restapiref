@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ Author: Pablo Varela    pablo.varela@intel.com
+ (C) Copyright Intel Corporation 2012. All Rights Reserved.
+ -->
+
+<plugin id="com.intel.restapiref">
+    
+    <!-- Plug-in version -->
+    <feature extension="package.version" value="0.1"/>
+    
+    <!-- DITA Catalog -->
+    <feature extension="dita.specialization.catalog.relative" value="catalog-dita.xml" type="file"/>
+    
+    <!-- Ant extension -->
+    <feature extension="dita.conductor.target.relative" value="conductor.xml" type="file"/>
+    
+    <!-- Styles overrides -->
+    <feature extension="dita.xsl.xhtml" value="xsl/restApiRef2xhtml.xsl" type="file"/>
+    
+    <!-- Localization strings for Style overrides -->
+    <feature extension="dita.xsl.strings" value="xsl/restapistrings.xml" type="file"/>
+    
+    
+    <!-- Plug-in dependencies -->
+    <require plugin="apiref" importance="required"/>
+
+</plugin>

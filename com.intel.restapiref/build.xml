@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ | (C) Copyright Intel Corporation 2012. All Rights Reserved.
+ *-->
+<project name="restApiRef2xhtml">
+  <dirname property="restApiRef2xhtml.dir" file="${ant.file.restApiRef2xhtml}"/>
+
+  <!-- Content targets -->
+  <target name="restApiRef2xhtml">
+
+    <!-- restApiRef2xhtml.xsl extends dita2xhtml via the plugin interface. -->
+    <antcall target="dita2xhtml"/>
+    
+    <!-- Move frameset and CSS files to output folder. -->
+    <copy todir="${output.dir}" failonerror="yes">
+      <fileset dir="${restApiRef2xhtml.dir}">
+        <include name="*.css"/>
+        <include name="*.html"/>
+      </fileset>
+    </copy>
+
+  </target>
+</project>

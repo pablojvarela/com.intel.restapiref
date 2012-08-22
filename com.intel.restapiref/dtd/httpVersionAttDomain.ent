@@ -1,0 +1,10 @@
+<!--
+ | (C) Copyright Intel Corporation 2012. All Rights Reserved.
+
+    <!DOCTYPE httpVersionAttDomain PUBLIC "-//Intel//ENTITIES DITA HTTP Version Attribute Domain//EN" 
+              "httpVersionAttDomain.ent">
+-->
+
+
+<!ENTITY % httpVersion-d-attribute "httpVersion (1.0 | 1.1) #REQUIRED">
+<!ENTITY httpVersion-d-att "a(props httpVersion)">

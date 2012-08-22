@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Shells, document types and domains specializations to represent REST API reference information.
+ Author: Pablo Varela    pablo.varela@intel.com
+  | (C) Copyright Intel Corporation 2012. All Rights Reserved.
+-->
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"
+         prefer="public">
+    
+    <!-- Maps -->
+    <public publicId="-//Intel//DTD DITA REST API Reference Map//EN" uri="dtd/restApiMap.dtd"/>
+    <public publicId="-//Intel//ELEMENTS DITA REST API Reference Map//EN" uri="dtd/restApiMap.mod"/>
+    
+    <!-- Document Types -->
+    <public publicId="-//Intel//DTD DITA REST Service Type//EN" uri="dtd/restService.dtd"/>
+    <public publicId="-//Intel//DTD DITA REST Resource Type//EN" uri="dtd/restResource.dtd"/>
+    <public publicId="-//Intel//DTD DITA REST Operation Type//EN" uri="dtd/restOperation.dtd"/>
+    
+    <public publicId="-//Intel//ELEMENTS DITA REST Service Type//EN" uri="dtd/restService.mod"/>
+    <public publicId="-//Intel//ELEMENTS DITA REST Resource Type//EN" uri="dtd/restResource.mod"/>
+    <public publicId="-//Intel//ELEMENTS DITA REST Operation Type//EN" uri="dtd/restOperation.mod"/> 
+    
+    
+    <!-- Element Domains -->
+    <public publicId="-//Intel//ENTITIES DITA REST API Domain//EN" uri="dtd/restApiDomain.ent"/>
+    <public publicId="-//Intel//ELEMENTS DITA REST API Domain//EN" uri="dtd/restApiDomain.mod"/>
+    
+    <public publicId="-//Intel//ENTITIES DITA HTTP Domain//EN" uri="dtd/httpDomain.ent"/>
+    <public publicId="-//Intel//ELEMENTS DITA HTTP Domain//EN" uri="dtd/httpDomain.mod"/>
+    
+    
+    <!-- Attribute Domains -->
+    <public publicId="-//Intel//ENTITIES DITA HTTP Version Attribute Domain//EN" uri="dtd/httpVersionAttDomain.ent"/>
+    
+    <public publicId="-//Intel//ENTITIES DITA REST API Domain//EN" uri="dtd/restApiDomain.ent"/>
+    
+    
+</catalog>

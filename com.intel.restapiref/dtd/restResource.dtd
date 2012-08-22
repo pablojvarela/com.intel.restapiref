@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ | (C) Copyright Intel Corporation 2012. All Rights Reserved.
+
+XML declaration:
+
+    <!DOCTYPE restResource PUBLIC "-//Intel//DTD DITA REST Resource Type//EN"
+              "dtd/restResource.dtd">
+-->
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ENTITY DECLARATIONS                 -->
+<!-- ============================================================= -->
+<!ENTITY % pr-d-dec PUBLIC "-//OASIS//ENTITIES DITA Programming Domain//EN"
+  "../../../dtd/technicalContent/dtd/programmingDomain.ent">
+  %pr-d-dec;
+  
+<!ENTITY % ut-d-dec PUBLIC "-//OASIS//ENTITIES DITA Utilities Domain//EN" 
+  "../../../dtd/base/dtd/utilitiesDomain.ent">
+  %ut-d-dec;
+  
+<!ENTITY % hi-d-dec PUBLIC "-//OASIS//ENTITIES DITA Highlight Domain//EN" 
+  "../../../dtd/base/dtd/highlightDomain.ent">
+  %hi-d-dec;
+  
+<!ENTITY % api-d-dec PUBLIC "-//IBM//ENTITIES DITA API Domain//EN"
+  "../../apiref/dtd/apiDomain.ent">
+  %api-d-dec;
+  
+<!ENTITY % restapi-d-dec PUBLIC "-//Intel//ENTITIES DITA REST API Domain//EN"
+  "restApiDomain.ent">
+  %restapi-d-dec;
+  
+<!ENTITY % http-d-dec PUBLIC "-//Intel//ENTITIES DITA HTTP Domain//EN"
+  "httpDomain.ent">
+  %http-d-dec;
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
+<!-- ============================================================= -->
+<!ENTITY % restResourceVersion-d-dec SYSTEM "restResourceVersionAttDomain.ent">
+  %restResourceVersion-d-dec;
+
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN EXTENSIONS                          -->
+<!-- ============================================================= -->
+<!ENTITY % pre          "pre     | %pr-d-pre;" >
+<!ENTITY % keyword      "keyword | %pr-d-keyword;  | %http-d-keyword;" >
+<!ENTITY % ph           "ph      | %pr-d-ph;       | %hi-d-ph;   |  %http-d-ph;"  >
+<!ENTITY % fig          "fig     | %pr-d-fig;      | %ut-d-fig;" >
+<!ENTITY % dl           "dl      | %pr-d-dl;"  >
+<!ENTITY % xref         "xref    | %api-d-xref;    | %restapi-d-xref;" >
+<!ENTITY % text         "text    | %http-d-text;"> 
+
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
+<!-- ============================================================= -->
+<!ENTITY % props-attribute-extensions 
+    "%restResourceVersion-d-attribute;"
+>
+
+
+<!-- ============================================================= -->
+<!--                    TOPIC NESTING OVERRIDES                    -->
+<!-- ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
+<!-- ============================================================= -->
+<!ENTITY included-domains
+    "&pr-d-att;
+     &ut-d-att;
+     &hi-d-att;
+     &api-d-att;
+     &restapi-d-att;
+     &http-d-att;
+     &restResourceVersion-d-att;"
+>
+
+
+
+<!-- ============================================================= -->
+<!--                    CONTENT CONSTRAINT INTEGRATION             -->
+<!-- ============================================================= -->
+
+
+
+
+<!-- ============================================================= -->
+<!--                    TOPIC ELEMENT INTEGRATION                  -->
+<!-- ============================================================= -->
+<!ENTITY % topicDefns PUBLIC "-//OASIS//ENTITIES DITA Topic Definitions//EN"
+    "../../../dtd/base/dtd/topicDefn.ent">
+    %topicDefns;
+
+<!--Embed the base topic module to define the base elements-->
+<!ENTITY % topic-type PUBLIC "-//OASIS//ELEMENTS DITA Topic//EN"
+    "../../../dtd/base/dtd/topic.mod">
+    %topic-type;
+
+<!--Embed the base reference module to define the base elements-->
+<!ENTITY % reference-type PUBLIC "-//OASIS//ELEMENTS DITA Reference//EN"
+    "../../../dtd/technicalContent/dtd/reference.mod">
+    %reference-type;
+
+<!--Embed the base API module to define the base elements-->
+<!ENTITY % apiref-typemod PUBLIC "-//IBM//ELEMENTS DITA API Reference//EN"
+    "../../apiref/dtd/apiRef.mod">
+    %apiref-typemod;
+
+<!--Embed the API module to get the generic API Classifier elements-->
+<!ENTITY % apiclass-typemod PUBLIC "-//IBM//ELEMENTS DITA API Classifier//EN"
+    "../../apiref/dtd/apiClassifier.mod">
+    %apiclass-typemod;
+
+<!--Embed the API module to get the generic API Operation elements-->
+<!ENTITY % apioperation-typemod PUBLIC "-//IBM//ELEMENTS DITA API Operation//EN"
+    "../../apiref/dtd/apiOperation.mod">
+    %apioperation-typemod;
+
+<!ENTITY % restresource-typemod PUBLIC "-//Intel//ELEMENTS DITA REST Resource Type//EN" 
+    "restResource.mod">
+    %restresource-typemod;
+
+<!ENTITY % restoperation-typemod PUBLIC "-//Intel//ELEMENTS DITA REST Operation Type//EN"
+    "restOperation.mod">
+    %restoperation-typemod;
+
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ELEMENT INTEGRATION                 -->
+<!-- ============================================================= -->
+<!ENTITY % pr-d-def PUBLIC "-//OASIS//ELEMENTS DITA Programming Domain//EN"
+    "../../../dtd/technicalContent/dtd/programmingDomain.mod">
+    %pr-d-def;
+  
+<!ENTITY % hi-d-def PUBLIC "-//OASIS//ELEMENTS DITA Highlight Domain//EN" 
+    "../../../dtd/base/dtd/highlightDomain.mod">
+    %hi-d-def;
+  
+<!ENTITY % ut-d-def PUBLIC "-//OASIS//ELEMENTS DITA Utilities Domain//EN" 
+    "../../../dtd/base/dtd/utilitiesDomain.mod">
+    %ut-d-def;
+  
+<!ENTITY % api-d-def PUBLIC "-//IBM//ELEMENTS DITA API Domain//EN"
+    "../../apiref/dtd/apiDomain.mod">
+    %api-d-def;
+  
+<!ENTITY % restapi-d-def PUBLIC "-//Intel//ELEMENTS DITA REST API Domain//EN"
+    "restApiDomain.mod">
+    %restapi-d-def;
+  
+<!ENTITY % http-d-def PUBLIC "-//Intel//ELEMENTS DITA HTTP Domain//EN"
+    "httpDomain.mod">
+    %http-d-def;

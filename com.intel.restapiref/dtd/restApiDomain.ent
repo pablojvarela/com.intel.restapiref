@@ -1,0 +1,15 @@
+<!--
+ | (C) Copyright Intel Corporation 2012. All Rights Reserved.
+
+    <!DOCTYPE restApiDomain PUBLIC "-//Intel//ENTITIES DITA REST API Domain//EN" 
+              "dtd/restApiDomain.ent">
+-->
+
+
+<!ENTITY % restapi-d-xref   "restservice |
+                             restresource |
+                             restoperation
+                            "
+>
+
+<!ENTITY restapi-d-att "(topic restapi-d)">

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ (C) Copyright Intel Corporation 2012. All Rights Reserved.
+ *-->
+<project name="restApiRef" default="all" basedir="..\..">
+  <import file="${basedir}${file.separator}build.xml" description="Imported ../build.xml"/>
+
+  <dirname property="restApiRef.dir" file="${ant.file.restApiRef}"/>
+
+  <target name="all" description="build all API Reference sample output"
+    depends="restApiRefSample2xhtml"/>
+
+  <!-- sample content targets -->
+  <target name="restApiRefSample2xhtml" description="build HTML for the REST API Reference samples" depends="use-init">
+    <mkdir dir="${restApiRef.dir}${file.separator}out"/>
+    <mkdir dir="${restApiRef.dir}${file.separator}out${file.separator}sample"/>
+
+    <antcall target="restApiRef2xhtml">
+      <param name="dita.extname" value=".dita"/>
+      <param name="transtype" value="xhtml"/>
+      <param name="args.input"
+        value="${restApiRef.dir}${file.separator}sample${file.separator}SampleRestApiRef.ditamap"/>
+      <param name="output.dir" value="${restApiRef.dir}${file.separator}out${file.separator}sample"/>
+    </antcall>
+
+    <copy file="${restApiRef.dir}${file.separator}sample${file.separator}frameset.html"
+      todir="${restApiRef.dir}${file.separator}out${file.separator}sample"/>
+  </target>
+
+  <target name="restApiRefSampleClean" description="Delete the sample output files from the build">
+    <delete dir="${restApiRef.dir}${file.separator}out${file.separator}sample"/>
+  </target>
+</project>

@@ -1,0 +1,39 @@
+<!--
+ A domain specialization to represent HTTP protocol interactions.
+ Author: Pablo Varela    pablo.varela@intel.com
+  | (C) Copyright Intel Corporation 2012. All Rights Reserved.
+
+    <!DOCTYPE httpDomain PUBLIC "-//Intel//ENTITIES DITA HTTP Domain//EN" 
+              "httpDomain.ent">
+-->
+
+<!ENTITY % http-d-ph  "httpRequest 
+                      | httpResponse 
+                      | httpURL 
+                      | httpQuery
+                      | httpQueryValue
+                      | httpHeader
+                      | httpHeaderValue
+                      | httpEntity
+                      | httpEntityHeaderValue
+                      | httpStatusLine
+                      "
+>
+
+
+<!ENTITY % http-d-keyword   "httpMethod
+                            | httpHost
+                            | httpPort
+                            | httpAbsPath
+                            | httpQueryParam
+                            | httpHeaderName 
+                            | httpEntityHeaderName
+                           "
+>
+
+
+<!ENTITY % http-d-text "httpEntityBody" >
+
+
+<!ENTITY http-d-att "(topic http-d)">
+
