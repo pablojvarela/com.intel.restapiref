@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE restApiMap PUBLIC "-//Intel//DTD DITA REST API Reference Map//EN" 
+          "../dtd/restApiMap.dtd">
+<restApiMap title="AcmeCatalog API Documentation">
+    <restServiceRef href="catalogService.dita">
+        <restResourceRef href="catalogs.dita">
+            <restOperationRef href="getCatalogs.dita"/>
+        </restResourceRef>
+    </restServiceRef>
+</restApiMap>

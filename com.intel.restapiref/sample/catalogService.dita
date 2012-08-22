@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE restService PUBLIC "-//Intel//DTD DITA REST Service API Reference//EN" 
+    "../dtd/restService.dtd">
+<restService id="catalogService" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+    <apiName>Catalog Service</apiName>
+    <shortdesc>A RESTful service to manage catalogs.</shortdesc>
+    <restServiceDetail id="catalogServiceDetail">
+        <apiDesc>Create catalogs. Add items. Be happy.</apiDesc>
+    </restServiceDetail>
+</restService>

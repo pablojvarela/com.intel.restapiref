@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE restOperation PUBLIC "-//Intel//DTD DITA REST Operation API Reference//EN" 
+        "../dtd/restOperation.dtd">
+<restOperation id="getCatalogs" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+    <apiName>Get Catalogs</apiName>
+    <restOperationDetail>
+        <apiDesc>Gets the list of available catalogs.</apiDesc>
+        <restOperationDef>
+            <restOperationRequest>
+                <httpRequest>
+                    <httpMethod>GET</httpMethod>
+                    <httpURL>
+                        <httpHost>http://catalogs.example.org/</httpHost>
+                        <httpAbsPath>catalogs</httpAbsPath>
+                    </httpURL>
+                </httpRequest>
+            </restOperationRequest>
+            <restOperationResponse>
+                <httpResponse>
+                    <httpStatusLine>200 OK</httpStatusLine>
+                    <httpAnnotation>The list of catalogs is attached as the response entity.</httpAnnotation>
+                    <httpEntity>
+                        <httpEntityBody>
+                            <![CDATA[<![CDATA[catalogs/music
+catalogs/images
+catalogs/books
+catalogs/magazines]]></httpEntityBody>
+                    </httpEntity>
+                </httpResponse>
+            </restOperationResponse>
+            <restOperationResponse>
+                <httpResponse>
+                    <httpStatusLine>400 Denied</httpStatusLine>
+                    <httpAnnotation>You did not perform the action as a logged user. Log in and try again.</httpAnnotation>
+                </httpResponse>
+            </restOperationResponse>
+        </restOperationDef>
+    </restOperationDetail>
+</restOperation>
