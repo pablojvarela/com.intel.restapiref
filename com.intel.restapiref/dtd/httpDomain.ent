@@ -10,12 +10,9 @@
 <!ENTITY % http-d-ph  "httpRequest 
                       | httpResponse 
                       | httpURL 
-                      | httpQuery
-                      | httpQueryValue
-                      | httpHeader
-                      | httpHeaderValue
                       | httpEntity
-                      | httpEntityHeaderValue
+                      | httpKeyValue
+                      | httpValue
                       | httpStatusLine
                       "
 >
@@ -25,9 +22,7 @@
                             | httpHost
                             | httpPort
                             | httpAbsPath
-                            | httpQueryParam
-                            | httpHeaderName 
-                            | httpEntityHeaderName
+                            | httpParam
                            "
 >
 

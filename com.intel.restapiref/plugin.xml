@@ -23,7 +23,8 @@
     <feature extension="dita.xsl.strings" value="xsl/restapistrings.xml" type="file"/>
     
     
-    <!-- Plug-in dependencies -->
+    <!-- Plug-in dependencies 
     <require plugin="apiref" importance="required"/>
+    -->
 
 </plugin>

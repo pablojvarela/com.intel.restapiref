@@ -12,7 +12,7 @@ XML declaration:
 <!ENTITY % restOperationDetail      "restOperationDetail">
 <!ENTITY % restOperationDef         "restOperationDef" >
 <!ENTITY % restOperationRequest     "restOperationRequest">
-<!ENTITY % restOperationResponse    "restOperationResponse">
+<!ENTITY % restOperationResponses    "restOperationResponses">
 
 
 <!-- ============ Hooks for shell DTD ============ -->
@@ -53,8 +53,7 @@ XML declaration:
 >
 
 <!ELEMENT restOperationDef (
-        (%restOperationRequest;)*,
-        (%restOperationResponse;)*,
+        ((%restOperationRequest;), (%restOperationResponses;))*,
         (%example; | %section;)*
         )
 >
@@ -74,14 +73,14 @@ XML declaration:
 >
 
 
-<!ELEMENT restOperationResponse (
+<!ELEMENT restOperationResponses (
         (%ph;)*,
         (%example; | %section;)*
     )
 >
-<!ATTLIST restOperationResponse  %id-atts;
-                                 %localization-atts;
-                                 outputclass CDATA #IMPLIED
+<!ATTLIST restOperationResponses  %id-atts;
+                                  %localization-atts;
+                                  outputclass CDATA #IMPLIED
 >
 
 <!-- ============ Class ancestry ============ -->
@@ -89,4 +88,4 @@ XML declaration:
 <!ATTLIST restOperationDetail        %global-atts;    class  CDATA "- topic/body    reference/refbody   apiRef/apiDetail    apiOperation/apiOperationDetail     restOperation/restOperationDetail ">
 <!ATTLIST restOperationDef           %global-atts;    class  CDATA "- topic/section reference/section   apiRef/apiDef       apiOperation/apiOperationDef        restOperation/restOperationDef ">
 <!ATTLIST restOperationRequest       %global-atts;    class  CDATA "- topic/ph      reference/ph        apiRef/apiDefItem   apiOperation/apiOperationDefItem    restOperation/restOperationRequest ">
-<!ATTLIST restOperationResponse      %global-atts;    class  CDATA "- topic/ph      reference/ph        apiRef/apiDefItem   apiOperation/apiReturn              restOperation/restOperationResponse ">
+<!ATTLIST restOperationResponses     %global-atts;    class  CDATA "- topic/ph      reference/ph        apiRef/apiDefItem   apiOperation/apiReturn              restOperation/restOperationResponses ">

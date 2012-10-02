@@ -24,18 +24,13 @@
 <!ENTITY % httpAbsPath      "httpAbsPath">
 
 <!ENTITY % httpQueries      "httpQueries">
-<!ENTITY % httpQuery        "httpQuery">
-<!ENTITY % httpQueryParam   "httpQueryParam">
-<!ENTITY % httpQueryValue   "httpQueryValue">
+<!ENTITY % httpHeaders      "httpHeaders">
+<!ENTITY % httpEntity       "httpEntity">
+<!ENTITY % httpEntityBody   "httpEntityBody">
 
-<!ENTITY % httpHeaders       "httpHeaders">
-<!ENTITY % httpHeader       "httpHeader">
-<!ENTITY % httpHeaderName   "httpHeaderName">
-<!ENTITY % httpHeaderValue  "httpHeaderValue">
-
-<!ENTITY % httpEntity             "httpEntity">
-<!ENTITY % httpEntityHeaders      "httpEntityHeaders">
-<!ENTITY % httpEntityBody         "httpEntityBody">
+<!ENTITY % httpKeyValue     "httpKeyValue">
+<!ENTITY % httpParam        "httpParam">
+<!ENTITY % httpValue        "httpValue">
 
 <!ENTITY % httpStatusLine   "httpStatusLine">
 
@@ -98,7 +93,7 @@
             PK__LISJFILSJLSJFLIJSEFjfs90uS0-US09uSusF-Usts8056TS8076SDF786SDF0876S0DF6ReportSample.xml
 -->
 <!ELEMENT httpResponse (
-        ( (%httpStatusLine;), (%httpAnnotation;)* ),
+        ( %httpStatusLine;, %httpAnnotation; ),
         ( (%httpHeaders;)?, (%httpAnnotation;)* ),
         ( (%httpEntity;)?, (%httpAnnotation;)* ),
         (%httpAnnotation;)*
@@ -132,7 +127,7 @@
                         %univ-atts;>
 
 <!--doc: An HTTP host as in 'www.intel.com/' -->
-<!ELEMENT  httpHost     (#PCDATA | %httpAnnotation;)* >
+<!ELEMENT  httpHost     (#PCDATA)* >
 <!ATTLIST  httpHost     href   CDATA #IMPLIED
                         keyref CDATA #IMPLIED
                         type   CDATA #IMPLIED
@@ -140,7 +135,7 @@
 
 
 <!--doc: An HTTP port number or name as in '80' -->
-<!ELEMENT  httpPort      (#PCDATA | %httpAnnotation;)* >
+<!ELEMENT  httpPort     (#PCDATA)* >
 <!ATTLIST  httpPort     href   CDATA #IMPLIED
                         keyref CDATA #IMPLIED
                         type   CDATA #IMPLIED
@@ -148,7 +143,9 @@
 
 
 <!--doc: An HTTP absolute path as in '/identity/v2' -->
-<!ELEMENT  httpAbsPath   (#PCDATA | %httpAnnotation;)* >
+<!ELEMENT  httpAbsPath   
+        (#PCDATA | %httpKeyValue;)*
+>
 <!ATTLIST  httpAbsPath  href   CDATA #IMPLIED
                         keyref CDATA #IMPLIED
                         type   CDATA #IMPLIED
@@ -156,88 +153,28 @@
 
 
 <!--doc: A set of HTTP query phrases, as in '?id=hugoreyes&role=keeper' -->
-<!ELEMENT  httpQueries    (%httpQuery;)+>
+<!ELEMENT  httpQueries  (%httpKeyValue;)+>
 <!ATTLIST  httpQueries  href   CDATA #IMPLIED
                         keyref CDATA #IMPLIED
                         type   CDATA #IMPLIED
                         %univ-atts;>
 
 
-<!--doc: A single HTTP query phrase, as in 'id=hugoreyes' -->
-<!ELEMENT  httpQuery    (
-        %httpQueryParam;,
-        (%httpAnnotation;)*,
-        (%httpQueryValue;)?,
-        (%httpAnnotation;)*
-    )
->
-<!ATTLIST  httpQuery    href   CDATA #IMPLIED
-                        keyref CDATA #IMPLIED
-                        type   CDATA #IMPLIED
-                        %univ-atts;>
-
-<!--doc: The parameter name of an HTTP query, as in 'id=' from the example in httpQuery -->
-<!ELEMENT  httpQueryParam   (#PCDATA | %httpAnnotation;)* >
-<!ATTLIST  httpQueryParam   href   CDATA #IMPLIED
-                            keyref CDATA #IMPLIED
-                            type   CDATA #IMPLIED
-                            %univ-atts;
-                            required (yes|no) "no">
-
-
-<!--doc: The parameter name of an HTTP query, as in 'hugoreyes' from the example in httpQuery -->
-<!ELEMENT  httpQueryValue   (#PCDATA | %httpAnnotation;)* >
-<!ATTLIST  httpQueryValue   href   CDATA #IMPLIED
-                            keyref CDATA #IMPLIED
-                            type   CDATA #IMPLIED
-                            %univ-atts;>
-
-
 <!--doc: A set of HTTP headers, as in 'Accept: text/plain 
                                        Accept-Encoding: gzip,deflate
                                        '
 -->
-<!ELEMENT  httpHeaders    (%httpHeader;)+>
+<!ELEMENT  httpHeaders  (%httpKeyValue;)+>
 <!ATTLIST  httpHeaders  href   CDATA #IMPLIED
                         keyref CDATA #IMPLIED
                         type   CDATA #IMPLIED
                         %univ-atts;>
 
 
-
-<!--doc: An HTTP header as in "Accept: text/plain" -->
-<!ELEMENT  httpHeader   (
-        %httpHeaderName;,
-        (%httpAnnotation;)*,
-        %httpHeaderValue;,
-        (%httpAnnotation;)*
-    )
->
-<!ATTLIST  httpHeader   href   CDATA #IMPLIED
-                        keyref CDATA #IMPLIED
-                        type   CDATA #IMPLIED
-                        %univ-atts;>
-
-<!--doc: An HTTP header name as in "Accept" -->
-<!ELEMENT  httpHeaderName    (#PCDATA | %httpAnnotation;)* >
-<!ATTLIST  httpHeaderName    href   CDATA #IMPLIED
-                             keyref CDATA #IMPLIED
-                             type   CDATA #IMPLIED
-                             %univ-atts;>
-
-<!--doc: An HTTP header value as in "text/plain" -->
-<!ELEMENT  httpHeaderValue   (#PCDATA | %httpAnnotation;)* >
-<!ATTLIST  httpHeaderValue   href   CDATA #IMPLIED
-                             keyref CDATA #IMPLIED
-                             type   CDATA #IMPLIED
-                             %univ-atts;>
-
-
-<!--doc: An HTTP entity as in "Content-Type: text/plain  This is the entity body." -->
+<!--doc: An HTTP entity as in "This is the entity body." -->
 <!ELEMENT  httpEntity   (
-        ( %httpEntityHeaders;, (%httpAnnotation;)* )*,
-        ( %httpEntityBody;, (%httpAnnotation;)* )*,
-        (%httpAnnotation;)*
+        %httpEntityBody;?,
+         %httpAnnotation;*
     )
 >
 <!ATTLIST  httpEntity   href   CDATA #IMPLIED
@@ -246,23 +183,42 @@
                         %univ-atts;>
 
 
-<!--doc: A set of HTTP headers, as in 'Accept: text/plain 
-                                       Accept-Encoding: gzip,deflate
-                                       '
--->
-<!ELEMENT  httpEntityHeaders  (%httpHeader;)+>
-<!ATTLIST  httpEntityHeaders  href   CDATA #IMPLIED
-                              keyref CDATA #IMPLIED
-                              type   CDATA #IMPLIED
-                              %univ-atts;>
-
-
 <!--doc: An HTTP entity body as in "This is the entity body." -->
-<!ELEMENT  httpEntityBody    (#PCDATA | %httpAnnotation;)* >
+<!ELEMENT  httpEntityBody    (%httpKeyValue;)*>
 <!ATTLIST  httpEntityBody    href   CDATA #IMPLIED
                              keyref CDATA #IMPLIED
                              type   CDATA #IMPLIED
                              %univ-atts;>                             
+
+
+<!--doc: A parametrised absolute path as in 'this/{path}/takes/{parameters}'. A single HTTP query phrase, as in 'id=hugoreyes'. An HTTP header as in "Accept: text/plain".  -->
+<!ELEMENT  httpKeyValue    (
+        %httpParam;,
+        %httpAnnotation;,
+        %httpValue;,
+        %httpAnnotation;
+    )
+>
+<!ATTLIST  httpKeyValue    href   CDATA #IMPLIED
+                             keyref CDATA #IMPLIED
+                             type   CDATA #IMPLIED
+                             %univ-atts;>      
+
+<!--doc: The parameter name of an HTTP query, as in 'id=' from the example in httpQuery. An HTTP header name as in "Accept"  -->
+<!ELEMENT  httpParam   (#PCDATA)* >
+<!ATTLIST  httpParam   href   CDATA #IMPLIED
+                       keyref CDATA #IMPLIED
+                       type   CDATA #IMPLIED
+                       %univ-atts; >
+
+
+<!--doc: The parameter value of an HTTP query, as in 'hugoreyes' from the example in httpQuery. An HTTP header value as in "text/plain" -->
+<!ELEMENT  httpValue   (#PCDATA)* >
+<!ATTLIST  httpValue   href   CDATA #IMPLIED
+                       keyref CDATA #IMPLIED
+                       type   CDATA #IMPLIED
+                       %univ-atts;>
+
 
 
 <!--doc: An HTTP status line as in '200 OK' -->
@@ -295,18 +251,13 @@
 <!ATTLIST httpAbsPath           %global-atts; class  CDATA "+ topic/keyword pr-d/kwd http-d/httpAbsPath ">
 
 <!ATTLIST httpQueries           %global-atts; class  CDATA "+ topic/ph pr-d/synph http-d/httpQueries ">
-<!ATTLIST httpQuery             %global-atts; class  CDATA "+ topic/ph pr-d/synph http-d/httpQuery ">
-<!ATTLIST httpQueryParam        %global-atts; class  CDATA "+ topic/keyword pr-d/parmname http-d/httpQueryParam ">
-<!ATTLIST httpQueryValue        %global-atts; class  CDATA "+ topic/ph pr-d/var http-d/httpQueryValue ">
-
-<!ATTLIST httpHeaders            %global-atts; class  CDATA "+ topic/ph pr-d/synph http-d/httpHeaders ">
-<!ATTLIST httpHeader            %global-atts; class  CDATA "+ topic/ph pr-d/synph http-d/httpHeader ">
-<!ATTLIST httpHeaderName        %global-atts; class  CDATA "+ topic/keyword pr-d/parmname http-d/httpHeaderName ">
-<!ATTLIST httpHeaderValue       %global-atts; class  CDATA "+ topic/ph pr-d/var http-d/httpHeaderValue ">
-
+<!ATTLIST httpHeaders           %global-atts; class  CDATA "+ topic/ph pr-d/synph http-d/httpHeaders ">
 <!ATTLIST httpEntity            %global-atts; class  CDATA "+ topic/ph pr-d/synph http-d/httpEntity ">
-<!ATTLIST httpEntityHeaders     %global-atts; class  CDATA "+ topic/ph pr-d/synph http-d/httpEntityHeaders ">
 <!ATTLIST httpEntityBody        %global-atts; class  CDATA "+ topic/text http-d/httpEntityBody ">    
+
+<!ATTLIST httpKeyValue          %global-atts; class  CDATA "+ topic/ph pr-d/synph http-d/httpKeyValue ">
+<!ATTLIST httpParam             %global-atts; class  CDATA "+ topic/keyword pr-d/parmname http-d/httpParam ">
+<!ATTLIST httpValue             %global-atts; class  CDATA "+ topic/ph pr-d/var http-d/httpValue ">
 
 <!ATTLIST httpStatusLine        %global-atts; class  CDATA "+ topic/ph pr-d/synph http-d/httpStatusLine ">
 

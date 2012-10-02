@@ -3,37 +3,55 @@
         "../dtd/restOperation.dtd">
 <restOperation id="getCatalogs" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
     <apiName>Get Catalogs</apiName>
+    <shortdesc>Gets the list of available catalogs.</shortdesc>
     <restOperationDetail>
-        <apiDesc>Gets the list of available catalogs.</apiDesc>
         <restOperationDef>
             <restOperationRequest>
                 <httpRequest>
                     <httpMethod>GET</httpMethod>
                     <httpURL>
-                        <httpHost>http://catalogs.example.org/</httpHost>
-                        <httpAbsPath>catalogs</httpAbsPath>
+                        <httpHost>http://catalogs.example.org</httpHost>
+                        <httpAbsPath>rest/catalogs</httpAbsPath>
+                        <httpQueries>
+                            <httpKeyValue>
+                                <httpParam>state</httpParam>
+                                <httpAnnotation/>
+                                <httpValue importance="required">active</httpValue>
+                                <httpAnnotation>This value is the state of.....</httpAnnotation>
+                            </httpKeyValue>
+                        </httpQueries>
                     </httpURL>
                 </httpRequest>
             </restOperationRequest>
-            <restOperationResponse>
+            <restOperationResponses>
                 <httpResponse>
                     <httpStatusLine>200 OK</httpStatusLine>
-                    <httpAnnotation>The list of catalogs is attached as the response entity.</httpAnnotation>
+                    <httpAnnotation>The list of catalogs is attached as the response
+                        entity.</httpAnnotation>
                     <httpEntity>
                         <httpEntityBody>
-                            <![CDATA[<![CDATA[catalogs/music
+                            <httpAnnotation><![CDATA[<![CDATA[catalogs/music
 catalogs/images
 catalogs/books
-catalogs/magazines]]></httpEntityBody>
+catalogs/magazines]]></httpAnnotation>
+                        </httpEntityBody>
                     </httpEntity>
                 </httpResponse>
-            </restOperationResponse>
-            <restOperationResponse>
                 <httpResponse>
                     <httpStatusLine>400 Denied</httpStatusLine>
-                    <httpAnnotation>You did not perform the action as a logged user. Log in and try again.</httpAnnotation>
+                    <httpAnnotation>You did not perform the action as a logged user. Log in and try
+                        again.</httpAnnotation>
                 </httpResponse>
-            </restOperationResponse>
+                <httpResponse>
+                    <httpStatusLine>400 Error</httpStatusLine>
+                    <httpAnnotation></httpAnnotation>
+                    <httpEntity>
+                        <httpEntityBody>
+                            <httpAnnotation><![CDATA[{"error":"Bad message format."}]]></httpAnnotation>
+                        </httpEntityBody>
+                    </httpEntity>
+                </httpResponse>
+            </restOperationResponses>
         </restOperationDef>
     </restOperationDetail>
 </restOperation>

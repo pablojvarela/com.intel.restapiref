@@ -4,5 +4,13 @@
 <restResource id="catalogsResource" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
     <apiName>Catalogs</apiName>
     <shortdesc>Represents available catalogs.</shortdesc>
-    <restResourceDetail/>  
+    <restResourceDetail>
+        <apiDesc>
+            The <restresource href="catalogs.dita#apiName"/> resource is available at:
+            <httpURL>
+                <httpHost>https://www.example.org</httpHost>
+                <httpAbsPath>rest/catalogs</httpAbsPath>
+            </httpURL>
+        </apiDesc>
+    </restResourceDetail>  
 </restResource>

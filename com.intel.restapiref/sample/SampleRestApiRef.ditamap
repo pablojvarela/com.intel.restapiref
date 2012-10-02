@@ -5,6 +5,7 @@
     <restServiceRef href="catalogService.dita">
         <restResourceRef href="catalogs.dita">
             <restOperationRef href="getCatalogs.dita"/>
+            <restOperationRef href="postItem.dita"/>
         </restResourceRef>
     </restServiceRef>
 </restApiMap>
