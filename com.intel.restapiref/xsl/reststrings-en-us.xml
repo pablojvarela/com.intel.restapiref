@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<strings xml:lang="en-us">
+    <!-- REST API Reference -->
+    <str name="restService">Service</str>
+    <str name="restResource">Resource</str>
+    <str name="restOperation">Operation</str>
+    <str name="restParameter">Parameter</str>
+    
+    <str name="restServiceHead">Service summary</str>
+    <str name="restResourceHead">Resource summary</str>
+    <str name="restOperationHead">Operation summary</str>
+    <str name="restParameterHead">Parameters</str>
+    <str name="restReturnHead">Responses</str>
+    
+    <str name="restOperationDetail">Operation detail</str>
+</strings>

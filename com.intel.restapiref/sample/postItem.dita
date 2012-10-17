@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE restOperation SYSTEM "file:/C:/Oxygen%20XML%20Editor%2014/frameworks/dita/DITA-OT/plugins/com.intel.restapiref/dtd/restOperation.dtd">
+<restOperation id="postItem" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+    <apiName>Post Item</apiName>
+    <shortdesc>Adds an item to an existing catalog.</shortdesc>
+    <restOperationDetail>
+        <restOperationDef>
+            <restOperationRequest>
+                <httpRequest>
+                    <httpMethod>POST</httpMethod>
+                    <httpURL>
+                        <httpHost>https://www.example.org</httpHost>
+                        <httpAbsPath>v2/catalogs/<httpKeyValue>
+                                <httpParam>catalog-id</httpParam>
+                                <httpAnnotation>The ID of the catalog where the item will be
+                                    added.</httpAnnotation>
+                                <httpValue>1234567890</httpValue>
+                                <httpAnnotation>A valid catalog ID.</httpAnnotation>
+                            </httpKeyValue>/collection/<httpKeyValue>
+                                <httpParam>collection-id</httpParam>
+                                <httpAnnotation>The ID of the collection where the item will be
+                                    added.</httpAnnotation>
+                                <httpValue>1234567890</httpValue>
+                                <httpAnnotation>A valid collection ID.</httpAnnotation>
+                            </httpKeyValue>
+                        </httpAbsPath>
+                        <httpQueries>
+                            <httpKeyValue>
+                                <httpParam>a-query</httpParam>
+                                <httpAnnotation>The name to assign to the item.</httpAnnotation>
+                                <httpValue>banana</httpValue>
+                                <httpAnnotation>A valid catalog item name.</httpAnnotation>
+                            </httpKeyValue>
+                            <httpKeyValue>
+                                <httpParam>another-query</httpParam>
+                                <httpAnnotation>The surname to assign to the item.</httpAnnotation>
+                                <httpValue>apple</httpValue>
+                                <httpAnnotation>A valid catalog item surname.</httpAnnotation>
+                            </httpKeyValue>
+                        </httpQueries>
+                    </httpURL>
+                    <httpHeaders>
+                        <httpKeyValue>
+                            <httpParam importance="optional">Content-type</httpParam>
+                            <httpAnnotation>The requested content type.</httpAnnotation>
+                            <httpValue>x-format-item</httpValue>
+                            <httpAnnotation/>
+                        </httpKeyValue>
+                        <httpKeyValue>
+                            <httpParam>anotherheader</httpParam>
+                            <httpAnnotation>This is another HTTP header.</httpAnnotation>
+                            <httpValue>foobar</httpValue>
+                            <httpAnnotation>A valid foobar must be referenced.</httpAnnotation>
+                        </httpKeyValue>
+                    </httpHeaders>
+                    <httpEntity>
+                        <httpEntityBody>
+                            <httpKeyValue importance="deprecated">
+                                <httpParam>an_entity_header</httpParam>
+                                <httpAnnotation>The type sent to the server.</httpAnnotation>
+                                <httpValue>x-some/thing</httpValue>
+                                <httpAnnotation>Invalid types are dismissed.</httpAnnotation>
+                            </httpKeyValue>
+                        </httpEntityBody>
+                        <httpAnnotation><![CDATA[<userProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <basic>
+      <firstName>Updated first name</firstName>
+      <lastName>Updated last name</lastName>
+   </basic>
+   <personal>
+      <birthday>1/1/1980</birthday>
+      <maritalStatus>Single</maritalStatus>
+      <education>University</education>
+      <occupation>Cook</occupation>
+      <language>English</language>
+      <gender>Male</gender>
+   </personal>
+   <extended>
+      <location>
+         <country>US</country><!--United States-->
+         <locality>Updated locality</locality>
+         <region>Updated region</region>
+         <street>Updated street</street>
+         <zipCode>Updated zip code</zipCode>
+      </location>
+      <telephone>
+         <mobile>Updated mobile number</mobile>
+         <home>Updated home number</home>
+         <work>Updated work number</work>
+      </telephone>
+   </extended>
+</userProfile>]]></httpAnnotation>
+                    </httpEntity>
+                </httpRequest>
+            </restOperationRequest>
+            <restOperationResponses>
+                <httpResponse>
+                    <httpStatusLine>200 OK</httpStatusLine>
+                    <httpAnnotation>The item was added to the catalog.</httpAnnotation>
+                    <httpEntity>
+                        <httpEntityBody>
+                            <httpKeyValue>
+                                <httpParam>an_entity_header</httpParam>
+                                <httpAnnotation>The type sent to the server.</httpAnnotation>
+                                <httpValue>x-some/thing</httpValue>
+                                <httpAnnotation>Invalid types are dismissed.</httpAnnotation>
+                            </httpKeyValue>
+                            <httpKeyValue importance="required"> 	 
+                                <httpParam>firstName</httpParam>
+                                <httpAnnotation>Basic profile. User's first name associated to the profile.</httpAnnotation>
+                                <httpValue>Jhon</httpValue>
+                                <httpAnnotation>A string of 50 characters.</httpAnnotation>
+                            </httpKeyValue>
+                        </httpEntityBody>
+                    </httpEntity>
+                </httpResponse>
+                <httpResponse>
+                    <httpStatusLine>404 Not found.</httpStatusLine>
+                    <httpAnnotation>The catalog ID did not identify a valid
+                        catalog.</httpAnnotation>
+                </httpResponse>
+            </restOperationResponses>
+        </restOperationDef>
+    </restOperationDetail>
+
+</restOperation>
