@@ -171,3 +171,11 @@ temp/
 
 # Build out folder
 out/
+
+
+############
+# Oxygen XML 
+############
+
+# Project file
+*.xpr

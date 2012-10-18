@@ -17,7 +17,7 @@
                                 <httpParam>state</httpParam>
                                 <httpAnnotation/>
                                 <httpValue importance="required">active</httpValue>
-                                <httpAnnotation>This value is the state of.....</httpAnnotation>
+                                <httpAnnotation>This value is the <b>state</b> of.....</httpAnnotation>
                             </httpKeyValue>
                         </httpQueries>
                     </httpURL>
@@ -29,12 +29,10 @@
                     <httpAnnotation>The list of catalogs is attached as the response
                         entity.</httpAnnotation>
                     <httpEntity>
-                        <httpEntityBody>
-                            <httpAnnotation><![CDATA[<![CDATA[catalogs/music
+                        <httpAnnotation><![CDATA[catalogs/music
 catalogs/images
 catalogs/books
 catalogs/magazines]]></httpAnnotation>
-                        </httpEntityBody>
                     </httpEntity>
                 </httpResponse>
                 <httpResponse>
@@ -46,9 +44,7 @@ catalogs/magazines]]></httpAnnotation>
                     <httpStatusLine>400 Error</httpStatusLine>
                     <httpAnnotation></httpAnnotation>
                     <httpEntity>
-                        <httpEntityBody>
-                            <httpAnnotation><![CDATA[{"error":"Bad message format."}]]></httpAnnotation>
-                        </httpEntityBody>
+                        <httpAnnotation><![CDATA[{"error":"Bad message format."}]]></httpAnnotation>
                     </httpEntity>
                 </httpResponse>
             </restOperationResponses>
