@@ -1,51 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE restOperation PUBLIC "-//Intel//DTD DITA REST Operation API Reference//EN" 
+<!DOCTYPE restOperation PUBLIC "-//Intel//DTD DITA REST Operation Type//EN" 
         "../dtd/restOperation.dtd">
-<restOperation id="getCatalogs" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
-    <apiName>Get Catalogs</apiName>
-    <shortdesc>Gets the list of available catalogs.</shortdesc>
+<restOperation id="getSomething" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+    <apiName>Get Something from a Resource</apiName>
+    <shortdesc>Returns what you asked for.</shortdesc>
     <restOperationDetail>
+        <apiDesc>
+            <p>Any context information about this operation.</p>
+        </apiDesc>
         <restOperationDef>
             <restOperationRequest>
                 <httpRequest>
                     <httpMethod>GET</httpMethod>
                     <httpURL>
-                        <httpHost>http://catalogs.example.org</httpHost>
-                        <httpAbsPath>rest/catalogs</httpAbsPath>
+                        <httpHost>https://api.intel.com</httpHost>
+                        <httpAbsPath>/identity/v2/<httpKeyValue importance="required">
+                                <httpParam>user-id</httpParam>
+                                <httpAnnotation>This is the ID that identifies the application
+                                    user.</httpAnnotation>
+                                <httpValue>jhon_lennon</httpValue>
+                                <httpAnnotation>String.</httpAnnotation>
+                            </httpKeyValue>/algo</httpAbsPath>
                         <httpQueries>
                             <httpKeyValue>
-                                <httpParam>state</httpParam>
-                                <httpAnnotation/>
-                                <httpValue importance="required">active</httpValue>
-                                <httpAnnotation>This value is the <b>state</b> of.....</httpAnnotation>
+                                <httpParam>callbackUrl</httpParam>
+                                <httpAnnotation>This is the URL that will be called... When no value
+                                    is passed, defaults to
+                                    <tt>urn:intel:identity:oauth:oob:async</tt></httpAnnotation>
+                                <httpValue>https://yourid.intel.com/myCallback</httpValue>
+                                <httpAnnotation>URL-encoded URI.</httpAnnotation>
+                            </httpKeyValue>
+                            <httpKeyValue>
+                                <httpParam>clientIdentifier</httpParam>
+                                <httpAnnotation>This is the ID that idenfies... </httpAnnotation>
+                                <httpValue>beecb3cf02ebgc3c6816abf6c41d2ef5</httpValue>
+                                <httpAnnotation></httpAnnotation>
                             </httpKeyValue>
                         </httpQueries>
                     </httpURL>
+                    <httpHeaders>
+                        <httpKeyValue importance="required">
+                            <httpParam>Authorization</httpParam>
+                            <httpAnnotation>Specifies the access token for which the related
+                                application instance ID will be retrieved.</httpAnnotation>
+                            <httpValue>Bearer gAAAACBqxbNM6gQ-uZVs5IDM</httpValue>
+                            <httpAnnotation>An access token of the "Bearer" type.</httpAnnotation>
+                        </httpKeyValue>
+                    </httpHeaders>
                 </httpRequest>
             </restOperationRequest>
             <restOperationResponses>
                 <httpResponse>
-                    <httpStatusLine>200 OK</httpStatusLine>
-                    <httpAnnotation>The list of catalogs is attached as the response
-                        entity.</httpAnnotation>
+                    <httpStatusLine>302 OK</httpStatusLine>
+                    <httpAnnotation>The application instance ID is returned in the message's
+                        body.</httpAnnotation>
+                    <httpHeaders>
+                        <httpKeyValue>
+                            <httpParam>Content-Type</httpParam>
+                            <httpAnnotation/>
+                            <httpValue>application/xml; charset=utf-8</httpValue>
+                            <httpAnnotation/>
+                        </httpKeyValue>
+                    </httpHeaders>
                     <httpEntity>
-                        <httpAnnotation><![CDATA[catalogs/music
-catalogs/images
-catalogs/books
-catalogs/magazines]]></httpAnnotation>
+                        <httpAnnotation><![CDATA[<?xml version="1.0"?>
+ <tokenInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">   
+     <instance>4ae25f86-7453-48d5-a59d-f48fd925d17e</instance> 
+ </tokenInfo>]]></httpAnnotation>
                     </httpEntity>
                 </httpResponse>
                 <httpResponse>
-                    <httpStatusLine>400 Denied</httpStatusLine>
-                    <httpAnnotation>You did not perform the action as a logged user. Log in and try
-                        again.</httpAnnotation>
-                </httpResponse>
-                <httpResponse>
-                    <httpStatusLine>400 Error</httpStatusLine>
-                    <httpAnnotation></httpAnnotation>
-                    <httpEntity>
-                        <httpAnnotation><![CDATA[{"error":"Bad message format."}]]></httpAnnotation>
-                    </httpEntity>
+                    <httpStatusLine>401 Unauthorized</httpStatusLine>
+                    <httpAnnotation>The specified access token is invalid or has
+                        expired.</httpAnnotation>
                 </httpResponse>
             </restOperationResponses>
         </restOperationDef>

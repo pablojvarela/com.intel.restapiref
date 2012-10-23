@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE restOperation SYSTEM "file:/C:/Oxygen%20XML%20Editor%2014/frameworks/dita/DITA-OT/plugins/com.intel.restapiref/dtd/restOperation.dtd">
+<!DOCTYPE restOperation PUBLIC "-//Intel//DTD DITA REST Operation Type//EN" 
+        "../dtd/restOperation.dtd">
 <restOperation id="postItem" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
     <apiName>Post Item</apiName>
     <shortdesc>Adds an item to an existing catalog.</shortdesc>

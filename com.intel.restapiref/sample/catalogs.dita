@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE restResource PUBLIC "-//Intel//DTD DITA REST Resource API Reference//EN" 
+<!DOCTYPE restResource PUBLIC "-//Intel//DTD DITA REST Resource Type//EN" 
         "../dtd/restResource.dtd">
 <restResource id="catalogsResource" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
     <apiName>Catalogs</apiName>
