@@ -597,19 +597,15 @@
 
 
 
-
-
   <!-- Sometimes we just need the HTTP method -->
   <xsl:template name="getHttpMethod">
     <xsl:value-of select="*[contains(@class,' http-d/httpMethod ')]"/>
   </xsl:template>
 
 
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-   - Filename manipulation
-   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- Filename manipulation  -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- adapted from topicpull.xsl - should be shared utilities -->
   <xsl:template name="getTopicFile">
     <xsl:param name="href" select="@href"/>

@@ -57,7 +57,7 @@ XML declaration:
         (%example; | %section;)*
         )
 >
-<!ATTLIST apiOperationDef  spectitle CDATA #IMPLIED
+<!ATTLIST restOperationDef  spectitle CDATA #IMPLIED
                            %univ-atts;
                            outputclass CDATA #IMPLIED
 >

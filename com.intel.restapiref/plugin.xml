@@ -17,7 +17,7 @@
     <feature extension="dita.conductor.target.relative" value="conductor.xml" type="file"/>
     
     <!-- Styles overrides -->
-    <feature extension="dita.xsl.xhtml" value="xsl/restApiRef2xhtml.xsl" type="file"/>
+    <feature extension="dita.xsl.xhtml" value="xsl/restapiref2xhtml.xsl" type="file"/>
     
     <!-- Localization strings for Style overrides -->
     <feature extension="dita.xsl.strings" value="xsl/restapistrings.xml" type="file"/>
