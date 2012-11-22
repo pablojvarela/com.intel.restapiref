@@ -8,9 +8,11 @@
     <!ENTITY http-version "HTTP/1.1">
 ]> 
 
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="2.0" 
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns="http://www.w3.org/1999/xhtml">
 
-  <xsl:output method="xml" encoding="utf-8" indent="no"/>
+  <xsl:output method="xhtml" encoding="utf-8" indent="no"/>
 
   <xsl:param name="restApiCSS" select="'restapiref.css'"/>
   <xsl:param name="restApiCSSRTL" select="'restapirefrtl.css'"/>
@@ -167,7 +169,7 @@
     match="*[contains(@class,' restService/restService ')]
                           /*[contains(@class,' apiRef/apiName ')]">
     <h1>
-      <a name="{../@id}"/>
+      <a name="{../@id}"></a>
       <xsl:value-of select="."/>
     </h1>
   </xsl:template>
@@ -189,7 +191,7 @@
     match="*[contains(@class,' restResource/restResource ')]
     /*[contains(@class,' apiRef/apiName ')]">
     <h2>
-      <a name="{../@id}"/>
+      <a name="{../@id}"></a>
       <xsl:value-of select="."/>
     </h2>
   </xsl:template>
@@ -231,11 +233,6 @@
   <xsl:template
     match="*[contains(@class,' restOperation/restOperation ')]/*[contains(@class,' restOperation/restOperationDetail ')]">
     <xsl:apply-templates/>
-    <!-- Separate content in IDZ pages.  -->
-    <br/>
-    <hr/>
-    <br/>
-    <br/>
   </xsl:template>
 
   <xsl:template match="*[contains(@class,' restOperation/restOperationDef ')]">
@@ -264,7 +261,7 @@
     match="*[contains(@class,' restOperation/restOperation ')]
                       /*[contains(@class,' apiRef/apiName ')]">
     <h3>
-      <a name="{../@id}"/>
+      <a name="{../@id}"></a>
       <xsl:value-of select="."/>
     </h3>
   </xsl:template>
