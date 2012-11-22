@@ -15,7 +15,6 @@
   <xsl:output method="xhtml" encoding="utf-8" indent="no"/>
 
   <xsl:param name="restApiCSS" select="'restapiref.css'"/>
-  <xsl:param name="restApiCSSRTL" select="'restapirefrtl.css'"/>
 
   <xsl:param name="WORKDIR" select="'./'"/>
 
@@ -46,70 +45,6 @@
       </body>
     </html>
   </xsl:template>
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- Pull content from referenced DITA files                             -->
-  <!-- Useful when running this XSLT transformation directly on a          -->
-  <!-- restApiMap, instead of running DITA ant.                            -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-  <!-- We get to the restService content by following restServiceRef references 
-    in the restApiMap and then applying templates -->
-  <xsl:template name="restService" match="*[contains(@class,' restApiMap/restServiceRef ')]">
-    <xsl:apply-templates select="document(./@href)/restService"/>
-    <xsl:apply-templates/>
-  </xsl:template>
-
-  <!-- We get to the restResource content by following restResourceRef references
-    in the restApiMap and then applying templates -->
-  <xsl:template name="restResource" match="*[contains(@class,' restApiMap/restResourceRef ')]">
-    <xsl:apply-templates select="document(./@href)/restResource"/>
-    <xsl:apply-templates/>
-  </xsl:template>
-
-  <!-- We get to the restOperation content by following restOperationRef references
-    in the restApiMap and then applying templates -->
-  <xsl:template name="restOperation" match="*[contains(@class,' restApiMap/restOperationRef ')]">
-    <xsl:apply-templates select="document(./@href)/restOperation"/>
-    <xsl:apply-templates/>
-  </xsl:template>
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- Table of Contents                                                   -->
-  <!-- Useful when running this XSLT transformation directly on a          -->
-  <!-- restApiMap, instead of running DITA ant.                            -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-  <xsl:template mode="TOC" match="*[contains(@class,' restApiMap/restServiceRef ')]">
-    <p class="toc0">
-      <a href="#{document(./@href)/restService/@id}">
-        <xsl:value-of select="document(./@href)/restService/apiName"/>
-      </a>
-    </p>
-    <xsl:apply-templates mode="TOC"/>
-  </xsl:template>
-
-  <xsl:template mode="TOC" match="*[contains(@class,' restApiMap/restResourceRef ')]">
-    <p class="toc1">
-      <a href="#{document(./@href)/restResource/@id}">
-        <xsl:value-of select="document(./@href)/restResource/apiName"/>
-      </a>
-    </p>
-    <xsl:apply-templates mode="TOC"/>
-  </xsl:template>
-
-  <xsl:template mode="TOC" match="*[contains(@class,' restApiMap/restOperationRef ')]">
-    <p class="toc2">
-      <a href="#{document(./@href)/restOperation/@id}">
-        <xsl:value-of select="document(./@href)/restOperation/apiName"/>
-      </a>
-    </p>
-    <xsl:apply-templates mode="TOC"/>
-  </xsl:template>
-
-
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!--  Process elements common to Services, Resources and Operations      -->
