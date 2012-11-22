@@ -11,13 +11,13 @@
                     <httpMethod>POST</httpMethod>
                     <httpURL>
                         <httpHost>https://www.example.org</httpHost>
-                        <httpAbsPath>v2/catalogs/<httpKeyValue>
+                        <httpAbsPath>v2/catalogs/<httpKeyValue importance="required">
                                 <httpParam>catalog-id</httpParam>
                                 <httpAnnotation>The ID of the catalog where the item will be
                                     added.</httpAnnotation>
                                 <httpValue>1234567890</httpValue>
                                 <httpAnnotation>A valid catalog ID.</httpAnnotation>
-                            </httpKeyValue>/collection/<httpKeyValue>
+                            </httpKeyValue>/collection/<httpKeyValue importance="required">
                                 <httpParam>collection-id</httpParam>
                                 <httpAnnotation>The ID of the collection where the item will be
                                     added.</httpAnnotation>
@@ -26,13 +26,13 @@
                             </httpKeyValue>
                         </httpAbsPath>
                         <httpQueries>
-                            <httpKeyValue>
+                            <httpKeyValue importance="required">
                                 <httpParam>a-query</httpParam>
                                 <httpAnnotation>The name to assign to the item.</httpAnnotation>
                                 <httpValue>banana</httpValue>
                                 <httpAnnotation>A valid catalog item name.</httpAnnotation>
                             </httpKeyValue>
-                            <httpKeyValue>
+                            <httpKeyValue importance="required">
                                 <httpParam>another-query</httpParam>
                                 <httpAnnotation>The surname to assign to the item.</httpAnnotation>
                                 <httpValue>apple</httpValue>
@@ -41,8 +41,8 @@
                         </httpQueries>
                     </httpURL>
                     <httpHeaders>
-                        <httpKeyValue>
-                            <httpParam importance="optional">Content-type</httpParam>
+                        <httpKeyValue importance="optional">
+                            <httpParam>Content-type</httpParam>
                             <httpAnnotation>The requested content type.</httpAnnotation>
                             <httpValue>x-format-item</httpValue>
                             <httpAnnotation/>
@@ -106,9 +106,10 @@
                                 <httpValue>x-some/thing</httpValue>
                                 <httpAnnotation>Invalid types are dismissed.</httpAnnotation>
                             </httpKeyValue>
-                            <httpKeyValue importance="required"> 	 
+                            <httpKeyValue importance="required">
                                 <httpParam>firstName</httpParam>
-                                <httpAnnotation>Basic profile. User's first name associated to the profile.</httpAnnotation>
+                                <httpAnnotation>Basic profile. User's first name associated to the
+                                    profile.</httpAnnotation>
                                 <httpValue>Jhon</httpValue>
                                 <httpAnnotation>A string of 50 characters.</httpAnnotation>
                             </httpKeyValue>

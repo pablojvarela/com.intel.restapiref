@@ -26,9 +26,9 @@
   </xsl:template>
 -->
 
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    Process restApiMap
-   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- Process restApiMap                                                    -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
   <xsl:template name="restApiMap" match="*[contains(@class,' restApiMap/restApiMap ')]">
     <html>
@@ -47,9 +47,9 @@
 
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- Pull content from referenced DITA files  -->
-  <!-- Useful when running this XSLT transformation directly on a 
-       restApiMap, instead of running DITA ant.                            -->
+  <!-- Pull content from referenced DITA files                             -->
+  <!-- Useful when running this XSLT transformation directly on a          -->
+  <!-- restApiMap, instead of running DITA ant.                            -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
   <!-- We get to the restService content by following restServiceRef references 
@@ -75,9 +75,9 @@
 
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- Table of Contents -->
-  <!-- Useful when running this XSLT transformation directly on a 
-       restApiMap, instead of running DITA ant.                            -->
+  <!-- Table of Contents                                                   -->
+  <!-- Useful when running this XSLT transformation directly on a          -->
+  <!-- restApiMap, instead of running DITA ant.                            -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
   <xsl:template mode="TOC" match="*[contains(@class,' restApiMap/restServiceRef ')]">
@@ -110,7 +110,7 @@
 
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!--  Process elements common to Services, Resources and Operations -->
+  <!--  Process elements common to Services, Resources and Operations      -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
   <xsl:template match="*[contains(@class,' topic/shortdesc ')]">
@@ -313,13 +313,10 @@
               <xsl:text>Parameter</xsl:text>
             </th>
             <th>
-              <xsl:text>Values</xsl:text>
-            </th>
-            <th>
               <xsl:text>Input type</xsl:text>
             </th>
             <th>
-              <xsl:text>Importance</xsl:text>
+              <xsl:text>Required?</xsl:text>
             </th>
             <th>
               <xsl:text>Description</xsl:text>
@@ -352,10 +349,6 @@
         <pre><xsl:value-of select="./*[contains(@class,' http-d/httpParam ')]"/></pre>
       </td>
       <td>
-        <!-- We need the httpAnnotation[2]: the one that is beneath the httpValue tag -->
-        <xsl:value-of select="./*[contains(@class,' http-d/httpAnnotation ')][2]"/>
-      </td>
-      <td>
         <xsl:choose>
           <xsl:when test="parent::httpQueries">
             <xsl:text>HTTP Query</xsl:text>
@@ -372,9 +365,19 @@
         </xsl:choose>
       </td>
       <td>
-        <xsl:value-of select="./@importance"/>
+        <xsl:choose>
+          <xsl:when test="./@importance = 'required'">
+            <xsl:text>Yes</xsl:text>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:text>No</xsl:text>
+          </xsl:otherwise>
+        </xsl:choose>
       </td>
       <td>
+        <!-- First we want the httpAnnotation[2]: the one that is beneath the httpValue tag -->
+        <xsl:value-of select="./*[contains(@class,' http-d/httpAnnotation ')][2]"/>
+        <xsl:text> </xsl:text>
         <xsl:value-of select="./*[contains(@class,' http-d/httpAnnotation ')][1]"/>
       </td>
     </tr>
