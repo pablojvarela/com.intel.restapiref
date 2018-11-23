@@ -43,7 +43,7 @@ You use the restapiref plug-in as any other DITA Open Toolkit plug-in. You can s
 
 Usage II
 --------
-Do to a particular need, the restapiref2xhtml XSLT can be run on a restApiMap directly, without calling DITA-OT's ant process. The result is a single-page HTML file with a precarious table of contents.
+Due to a particular need, the restapiref2xhtml XSLT can be run on a restApiMap directly, without calling DITA-OT's ant process. The result is a single-page HTML file with a precarious table of contents.
 
 License
 -------
